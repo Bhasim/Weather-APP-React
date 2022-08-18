@@ -67,8 +67,9 @@ function App() {
           <p className="temp">
             Current Temperature: {`${Math.floor(weather?.main?.temp )} °C`}  
           </p>
-          {/* {` | ${weather?.weather[0].description}`} */}
-
+  
+          {/* {` | ${weather?.weather[0].description}`}  */}
+          
           {/* <p className="temp">Feels like: {`${Math.floor(weather?.main?.feels_like )} °C`}</p>  */}
           <p className="temp">Humidity: {weather?.main?.humidity} %</p>
           <p className="temp">
