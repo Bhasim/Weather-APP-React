@@ -7,11 +7,7 @@ function App() {
   const [weather, setWeather] = useState({});
   const [locations, setLocations] = useState("hamburg");
   const [photos, setPhotos] = useState([]);
-  //const {icon} = weather.current.condition;
-  //  const {forecastday} = weather.forecast;
-  //  console.log(weather.current.condition
-  // );
-  console.log(weather);
+
   useEffect(() => {
     ifClicked();
   }, []);
@@ -70,7 +66,6 @@ function App() {
         </div>
         <div className="app__data">
           <div>
-            {/* {weather?.current?.condition.icon}  */}
             <img src={weather?.current?.condition?.icon} alt="wthr img" />
             <p className="temp">
               Condition: {weather?.current?.condition.text}{" "}
@@ -96,4 +91,4 @@ function App() {
 
 export default App;
 
-// 0984da71e52645f3b8280356221808
+// my API key = 0984da71e52645f3b8280356221808
