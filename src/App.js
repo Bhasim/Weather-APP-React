@@ -7,13 +7,18 @@ function App() {
   const [weather, setWeather] = useState({});
   const [locations, setLocations] = useState("hamburg");
   const [photos, setPhotos] = useState([]);
+  //const {icon} = weather.current.condition;
+  //  const {forecastday} = weather.forecast;
+  //  console.log(weather.current.condition
+  // );
+  console.log(weather);
   useEffect(() => {
     ifClicked();
   }, []);
 
   function ifClicked() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${locations}&APPID=d69a692c94a60061e2b515cfdc4daa0c&units=metric`
+      `http://api.weatherapi.com/v1/forecast.json?key=0984da71e52645f3b8280356221808&q=${locations}&days=5&aqi=no&alerts=no`
     ) // https://home.openweathermap.org/api_keys (id) for the free weather api
       .then((res) => {
         if (res.ok) {
@@ -64,21 +69,23 @@ function App() {
           </button>
         </div>
         <div className="app__data">
+          <div>
+            {/* {weather?.current?.condition.icon}  */}
+            <img src={weather?.current?.condition?.icon} alt="wthr img" />
+            <p className="temp">
+              Condition: {weather?.current?.condition.text}{" "}
+            </p>
+          </div>
           <p className="temp">
-            Current Temperature: {`${Math.floor(weather?.main?.temp )} °C`}  
+            Current Temperature: {`${Math.floor(weather?.current?.temp_c)} °C`}
           </p>
-  
-          {/* {` | ${weather?.weather[0].description}`}  */}
-          
-          {/* <p className="temp">Feels like: {`${Math.floor(weather?.main?.feels_like )} °C`}</p>  */}
-          <p className="temp">Humidity: {weather?.main?.humidity} %</p>
+          <p className="temp">Humidity: {weather?.current?.humidity} %</p>
+
           <p className="temp">
-            Sunrise:{" "}
-            {new Date(weather?.sys?.sunrise * 1000).toLocaleTimeString("en-IN")}
+            Sunrise:{weather?.forecast?.forecastday[0].astro.sunrise}
           </p>
           <p className="temp">
-            Sunset:{" "}
-            {new Date(weather?.sys?.sunset * 1000).toLocaleTimeString("en-IN")}
+            Sunset:{weather?.forecast?.forecastday[0].astro.sunset}
           </p>
         </div>
         <img className="app_image" src={photos} alt="" />
@@ -88,3 +95,5 @@ function App() {
 }
 
 export default App;
+
+// 0984da71e52645f3b8280356221808
