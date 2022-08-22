@@ -8,6 +8,7 @@ function App() {
   const [locations, setLocations] = useState("hamburg");
   const [photos, setPhotos] = useState([]);
 
+
   useEffect(() => {
     ifClicked();
   }, []);
@@ -91,4 +92,3 @@ function App() {
 
 export default App;
 
-// my API key = 0984da71e52645f3b8280356221808
