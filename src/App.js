@@ -16,7 +16,7 @@ function App() {
 
   function ifClicked() {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=0984da71e52645f3b8280356221808&q=${locations}&days=5&aqi=no&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=0984da71e52645f3b8280356221808&q=${locations}&days=5&aqi=no&alerts=no`
     ) // https://home.openweathermap.org/api_keys (id) for the free weather api
       .then((res) => {
         if (res.ok) {
