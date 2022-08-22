@@ -5,13 +5,14 @@ import "./App.css";
 
 function App() {
   const [weather, setWeather] = useState({});
-  const [locations, setLocations] = useState("hamburg");
+  const [locations, setLocations] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [success, setSuccess] = useState(false);
 
 
-  useEffect(() => {
-    ifClicked();
-  }, []);
+  // useEffect(() => {
+  //   ifClicked();
+  // }, [locations]);
 
   function ifClicked() {
     fetch(
@@ -20,6 +21,7 @@ function App() {
       .then((res) => {
         if (res.ok) {
           console.log(res.status);
+          setSuccess(true)
           return res.json();
         } else {
           if (res.status === 404) {
@@ -60,11 +62,12 @@ function App() {
             onChange={(e) => setLocations(e.target.value)}
             placeholder="Enter location"
             className="location_input"
-          />
+            />
           <button className="location_searcher" onClick={ifClicked}>
             Search Location
           </button>
-        </div>
+        </div>{ success ? <>
+          
         <div className="app__data">
           <div>
             <img src={weather?.current?.condition?.icon} alt="wthr img" />
@@ -85,7 +88,10 @@ function App() {
           </p>
         </div>
         <img className="app_image" src={photos} alt="" />
-      </div>
+        </>   :   <div>
+
+     Search for your City
+             </div> }  </div>
     </div>
   );
 }
