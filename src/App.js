@@ -9,19 +9,18 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [success, setSuccess] = useState(false);
 
-
   // useEffect(() => {
   //   ifClicked();
   // }, [locations]);
 
   function ifClicked() {
     fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=0984da71e52645f3b8280356221808&q=${locations}&days=5&aqi=no&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${locations}&days=5&aqi=no&alerts=no`
     ) // https://home.openweathermap.org/api_keys (id) for the free weather api
       .then((res) => {
         if (res.ok) {
           console.log(res.status);
-          setSuccess(true)
+          setSuccess(true);
           return res.json();
         } else {
           if (res.status === 404) {
@@ -37,7 +36,7 @@ function App() {
       })
       .catch((error) => console.log(error));
     fetch(
-      `https://api.unsplash.com/search/photos?query=${locations}&client_id=dBRW-3qplnsJCFR6GrbtIwUlXdXYe32vuL3LL0mudzc`
+      `https://api.unsplash.com/search/photos?query=${locations}&client_id=${process.env.REACT_APP_CLIEN_ID}`
     ) // https://unsplash.com/oauth/applications/356475 Unsplash Developers  Access Key (id) for photos
       .then((res) => {
         if (res.ok) {
@@ -62,39 +61,41 @@ function App() {
             onChange={(e) => setLocations(e.target.value)}
             placeholder="Enter location"
             className="location_input"
-            />
+          />
           <button className="location_searcher" onClick={ifClicked}>
             Search Location
           </button>
-        </div>{ success ? <>
-          
-        <div className="app__data">
-          <div>
-            <img src={weather?.current?.condition?.icon} alt="wthr img" />
-            <p className="temp">
-              Condition: {weather?.current?.condition.text}{" "}
-            </p>
-          </div>
-          <p className="temp">
-            Current Temperature: {`${Math.floor(weather?.current?.temp_c)} °C`}
-          </p>
-          <p className="temp">Humidity: {weather?.current?.humidity} %</p>
-
-          <p className="temp">
-            Sunrise:{weather?.forecast?.forecastday[0].astro.sunrise}
-          </p>
-          <p className="temp">
-            Sunset:{weather?.forecast?.forecastday[0].astro.sunset}
-          </p>
         </div>
-        <img className="app_image" src={photos} alt="" />
-        </>   :   <div>
+        {success ? (
+          <>
+            <div className="app__data">
+              <div>
+                <img src={weather?.current?.condition?.icon} alt="wthr img" />
+                <p className="temp">
+                  Condition: {weather?.current?.condition.text}{" "}
+                </p>
+              </div>
+              <p className="temp">
+                Current Temperature:{" "}
+                {`${Math.floor(weather?.current?.temp_c)} °C`}
+              </p>
+              <p className="temp">Humidity: {weather?.current?.humidity} %</p>
 
-     Search for your City
-             </div> }  </div>
+              <p className="temp">
+                Sunrise:{weather?.forecast?.forecastday[0].astro.sunrise}
+              </p>
+              <p className="temp">
+                Sunset:{weather?.forecast?.forecastday[0].astro.sunset}
+              </p>
+            </div>
+            <img className="app_image" src={photos} alt="" />
+          </>
+        ) : (
+          <div>Search for your City</div>
+        )}{" "}
+      </div>
     </div>
   );
 }
 
 export default App;
-
