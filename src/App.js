@@ -91,7 +91,7 @@ function App() {
             <img className="app_image" src={photos} alt="" />
           </>
         ) : (
-          <div>Search for your City</div>
+          <div className="guide">Search for your City</div>
         )}{" "}
       </div>
     </div>
