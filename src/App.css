@@ -1,4 +1,4 @@
- @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
 .app {
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   border: 1px solid rgba(255, 255, 255, 0.6);
   color: #333;
   border-radius: 5px;
-  margin-left: 220px;
+  /* margin-left: 220px; */
 }
 
 .temp {
@@ -52,6 +52,6 @@
   color: #2e2e2e;
 }
 
-.guide {
+/* .guide {
   margin-left: 222px;
-}
+} */
