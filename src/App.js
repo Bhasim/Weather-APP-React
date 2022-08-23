@@ -9,9 +9,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [success, setSuccess] = useState(false);
 
-  // useEffect(() => {
-  //   ifClicked();
-  // }, [locations]);
+ 
 
   function ifClicked() {
     fetch(
