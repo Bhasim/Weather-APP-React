@@ -47,8 +47,8 @@ LinkedIn: [Bahaaldean Hashim](https://www.linkedin.com/in/bahaaldean-hashim-5984
 
 ### Used Tools
 
-- [Cities Images for weather](https://www.unsplash.com)
-- [Geolocation API](https://www.weatherapi.com)
+- [Cities Images for weather "unsplash.com"](https://www.unsplash.com)
+- [Geolocation API "weatherapi.com"](https://www.weatherapi.com)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ---
