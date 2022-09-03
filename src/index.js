@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Weather from './components/weather';
 import reportWebVitals from './reportWebVitals';
-//import 'semantic-ui-css/semantic.min.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
