@@ -26,7 +26,7 @@
 ##### Developed With
 
 - [x] _HTML5_
-- [x] \_CSS3_Display_Grid_Flex box.
+- [x] _CSS3_Display_Grid_Flex box.
 - [ ] _SASS_
 - [ ] _SCSS_
 - [x] _JavaScript_
