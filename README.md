@@ -10,7 +10,7 @@
 
 ---
 
-**[Test this app yourself](https://weather-app-react-baha.vercel.app/)**
+**[Test this app yourself](https://weather-app-react-bhasim.vercel.app/)**
 
 ##### Installation
 
